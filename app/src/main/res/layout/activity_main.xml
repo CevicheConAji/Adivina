@@ -42,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Jugar"
+        android:background="@drawable/btn_color01"
         />
     <TextView
         android:id="@+id/tvInfoJugada"
@@ -50,6 +51,7 @@
         android:text="info de la jugada"
         android:gravity="center"
         android:textSize="20dp"
+        android:textColor="@color/white"
         />
     <TextView
         android:id="@+id/tvNumeroJugada"
@@ -57,12 +59,15 @@
         android:layout_height="wrap_content"
         android:text="0 jugadas"
         android:gravity="center"
+        android:textColor="@color/white"
+
         />
     <Button
         android:id="@+id/btnReset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Reset"
+        android:background="@drawable/btn_color01"
         />
 
 
