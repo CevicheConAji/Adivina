@@ -1,6 +1,7 @@
 package com.example.adivina
 
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -29,8 +30,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initComponets()
-        Log.i("Piero Numero Random",nAleatorio.toString())
+        Log.i("Piero Número Random",nAleatorio.toString())
         initListener()
+        incio()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -56,7 +58,13 @@ class MainActivity : AppCompatActivity() {
             reset()
         }
     }
+    private fun incio(){
+        //valor por defecto en el editable
+        var nAleatorio02:Int = (1..100).random();
+        etNumero.text = Editable.Factory.getInstance().newEditable(nAleatorio02.toString())
+    }
     private fun jugar(){
+
         //importante .text
         nIntroducir = etNumero.text.toString().toInt()
 
@@ -88,5 +96,6 @@ class MainActivity : AppCompatActivity() {
         contador = 0
         btnJugar.text = "Jugar"
         tvInfoJugada.text = "info de la jugada"
+        tvNumeroJugada.text = contador.toString()
     }
 }
