@@ -72,13 +72,14 @@ class MainActivity : AppCompatActivity() {
         //valor por defecto en el editable
         var nAleatorio02:Int = (1..100).random();
         etNumero.text = Editable.Factory.getInstance().newEditable(nAleatorio02.toString())
+        //Desactivamos boton jugada extra
+        btnJugadaExtra.isEnabled = false
     }
     private fun jugar(){
         //importante .text
         nIntroducir = etNumero.text.toString().toInt()
 
-        //Desactivamos boton jugada extra
-        btnJugadaExtra.isEnabled = false
+
 
         if(nAleatorio > nIntroducir){
             tvInfoJugada.text = "El número secreto es mayor"
@@ -99,16 +100,17 @@ class MainActivity : AppCompatActivity() {
             tvNumeroJugada.text = "JUGADA EXTRA"
             btnJugadaExtra.isEnabled = false
         }
-        if(nAleatorio.equals(nIntroducir) ){
-            tvInfoJugada.text = "Ganaste"
-            btnJugar.text = "Ganaste"
-            tvPista.text = "ENHORABUENA"
-        }
         if(contador > numeroJugadas){
             btnJugar.isEnabled = false
             tvInfoJugada.text = "Perdiste"
             //Si perdiste activamos el botonJugadaExtra
             btnJugadaExtra.isEnabled = true
+        }
+
+        if(nAleatorio.equals(nIntroducir) ){
+            tvInfoJugada.text = "Ganaste"
+            btnJugar.text = "Ganaste"
+            tvPista.text = "ENHORABUENA"
         }
 
 
